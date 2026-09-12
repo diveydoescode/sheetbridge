@@ -1,6 +1,10 @@
 # SheetBridge
 
+**Live demo:** [https://diveydoescode.github.io/sheetbridge/](https://diveydoescode.github.io/sheetbridge/)
+
 Spreadsheet ↔ database reconciliation that refuses last-write-wins.
+
+The GitHub Pages site runs the same three-way merge, conflict queue, and audit log in the browser (no Java process). Local / Docker still uses the Spring Boot API and PostgreSQL.
 
 Operations teams live in a spreadsheet. Engineering lives in a database. The same record is edited on both sides, and a naïve sync silently overwrites one of them. SheetBridge classifies every row against the **last-synced snapshot** — clean, one-sided, or conflicting — by a three-way merge over a stable row key.
 
@@ -39,7 +43,11 @@ Operations teams live in a spreadsheet. Engineering lives in a database. The sam
 | Spreadsheet | Local ledger for demo, Google Sheets API v4 when credentials are present |
 | UI | React 18, TypeScript, Vite, Tailwind |
 | Tests | JUnit 5 + MockMvc + Vitest |
-| Ship | Docker Compose, GitHub Actions |
+| Ship | Docker Compose, GitHub Actions, GitHub Pages |
+
+## GitHub Pages
+
+The Pages deploy is a static build of the React app. On `*.github.io` it uses an in-browser ledger (localStorage) so you can reconcile, resolve conflicts, and read the audit log without hosting PostgreSQL. Reset the seeded warehouse from the banner.
 
 ## Quick start (no Docker)
 

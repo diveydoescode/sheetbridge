@@ -1,6 +1,6 @@
 import { GitCompare, LayoutDashboard, ListChecks, ScrollText, SplitSquareHorizontal } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
-import { getActor, setActor } from "../api/client";
+import { getActor, isPagesDemo, resetDemo, setActor } from "../api/client";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -59,6 +59,26 @@ export function AppShell() {
           </label>
         </div>
       </header>
+      {isPagesDemo() && (
+        <div className="border-b border-rule bg-merge-dim/60">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm sm:px-6">
+            <p className="text-merge">
+              GitHub Pages demo — three-way merge, conflict queue, and audit run in the browser.
+              Java / Spring Boot is what you run locally or in Docker.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                resetDemo();
+                window.location.reload();
+              }}
+              className="shrink-0 rounded-full border border-merge/40 bg-white px-3 py-1 text-xs uppercase tracking-wide text-merge"
+            >
+              Reset ledger
+            </button>
+          </div>
+        </div>
+      )}
       <main className="mx-auto max-w-7xl px-6 py-8">
         <Outlet />
       </main>

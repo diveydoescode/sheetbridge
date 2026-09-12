@@ -1,14 +1,9 @@
 import type { AuditEntry, Conflict, Mapping, PreviewRow, ResolutionChoice, RowResponse, SyncRun } from "../types";
+import { getActor } from "./actor";
+import { demoApi, isPagesDemo } from "./demoEngine";
 
-const ACTOR_KEY = "sheetbridge.actor";
-
-export function getActor(): string {
-  return localStorage.getItem(ACTOR_KEY) || "maya.ops";
-}
-
-export function setActor(actor: string): void {
-  localStorage.setItem(ACTOR_KEY, actor);
-}
+export { getActor, setActor } from "./actor";
+export { isPagesDemo, resetDemo } from "./demoEngine";
 
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers = new Headers(init.headers);
@@ -33,7 +28,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   return (await response.json()) as T;
 }
 
-export const api = {
+const liveApi = {
   mappings: () => request<Mapping[]>("/api/mappings"),
   mapping: (id: string) => request<Mapping>(`/api/mappings/${id}`),
   preview: (id: string) => request<PreviewRow[]>(`/api/mappings/${id}/preview`),
@@ -78,3 +73,10 @@ export const api = {
     return request<AuditEntry[]>(`/api/audit?${params}`);
   },
 };
+
+export const api = new Proxy(liveApi, {
+  get(target, prop, receiver) {
+    const source = isPagesDemo() ? demoApi : target;
+    return Reflect.get(source, prop, receiver);
+  },
+}) as typeof liveApi;
