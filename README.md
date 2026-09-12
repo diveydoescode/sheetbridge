@@ -2,6 +2,8 @@
 
 **Live demo:** [https://diveydoescode.github.io/sheetbridge/](https://diveydoescode.github.io/sheetbridge/)
 
+**Learn / rebuild / NotebookLM:** [docs/understand/](docs/understand/) — problem, stack, three-way merge, sync, code map, and a session-by-session rebuild roadmap.
+
 Spreadsheet ↔ database reconciliation that refuses last-write-wins.
 
 The GitHub Pages site runs the same three-way merge, conflict queue, and audit log in the browser (no Java process). Local / Docker still uses the Spring Boot API and PostgreSQL.
