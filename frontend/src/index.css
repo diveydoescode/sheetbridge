@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 400px at 10% -10%, rgba(31, 122, 77, 0.08), transparent 50%),
+    radial-gradient(900px 380px at 100% 0%, rgba(33, 94, 140, 0.08), transparent 46%),
+    #f3efe6;
+  color: #1b2118;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+.ledger-grid {
+  background-image: linear-gradient(to right, rgba(214, 207, 192, 0.45) 1px, transparent 1px);
+  background-size: 28px 100%;
+}
+
+.pill {
+  @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium tracking-wide uppercase;
+}

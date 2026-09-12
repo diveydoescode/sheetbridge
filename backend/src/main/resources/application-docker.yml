@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:postgres}:${POSTGRES_PORT:5432}/${POSTGRES_DB:sheetbridge}
+    username: ${POSTGRES_USER:sheetbridge}
+    password: ${POSTGRES_PASSWORD:sheetbridge}
+    driver-class-name: org.postgresql.Driver
+  h2:
+    console:
+      enabled: false
+  flyway:
+    locations: classpath:db/migration,classpath:db/migration-postgres
+
+sheetbridge:
+  cors-origins: ${CORS_ORIGINS:http://localhost:8080,http://localhost:5173}

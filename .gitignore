@@ -1,0 +1,39 @@
+# Build
+backend/target/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.class
+*.jar
+*.war
+*.log
+
+# Local data
+backend/data/
+data/
+docs/*.png
+*.db
+*.mv.db
+*.trace.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+*.pem
+google-credentials.json
+
+# Maven
+backend/.mvn/wrapper/maven-wrapper.jar
+!backend/.mvn/wrapper/maven-wrapper.properties
