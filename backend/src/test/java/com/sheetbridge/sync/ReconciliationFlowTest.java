@@ -128,7 +128,8 @@ class ReconciliationFlowTest {
         var conflict = conflicts.findByMappingIdAndStatusOrderByCreatedAtAsc(mapping.getId(), ConflictStatus.OPEN).getFirst();
         var first = resolution.resolve(conflict.getId(), ResolutionChoice.DB, null, null, "eng");
         var second = resolution.resolve(conflict.getId(), ResolutionChoice.SHEET, null, null, "ops");
-        assertEquals(first.getResolvedAt(), second.getResolvedAt());
+        assertEquals(first.getResolvedPayloadJson(), second.getResolvedPayloadJson());
+        assertEquals(first.getResolvedBy(), second.getResolvedBy());
         assertEquals(ResolutionChoice.DB, second.getResolutionChoice());
     }
 }
