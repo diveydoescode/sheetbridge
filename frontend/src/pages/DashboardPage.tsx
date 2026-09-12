@@ -51,7 +51,12 @@ export function DashboardPage() {
         ))}
       </div>
       {mappings.length === 0 && !error && (
-        <p className="text-muted">No mappings yet.</p>
+        <p className="text-muted">
+          No ledgers.{" "}
+          <Link to="/guide" className="text-ink underline">
+            Guide
+          </Link>
+        </p>
       )}
     </div>
   );

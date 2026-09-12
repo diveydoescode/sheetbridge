@@ -45,8 +45,11 @@ export function ConflictQueuePage() {
           </Link>
         ))}
         {conflicts.length === 0 && !error && (
-          <div className="rounded-2xl border border-dashed border-rule px-5 py-10 text-center text-muted">
-            Queue is empty.
+          <div className="rounded-2xl border border-dashed border-rule px-5 py-10 text-center text-sm text-muted">
+            No rows need a choice.{" "}
+            <Link to="/" className="text-ink underline">
+              Open a ledger
+            </Link>
           </div>
         )}
       </div>

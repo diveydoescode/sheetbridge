@@ -2,9 +2,10 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api } from "../api/client";
 import { ErrorBanner } from "../components/ErrorBanner";
+import { SourceLegend } from "../components/SourceLegend";
 import { OutcomePill, SyncPill } from "../components/StatusPill";
-import { outcomeTone } from "../classify";
-import type { Mapping, PreviewRow, SyncRun } from "../types";
+import { outcomeLabel, outcomeTone } from "../classify";
+import type { Mapping, PreviewRow, RowOutcome, SyncRun } from "../types";
 
 const toneRow: Record<string, string> = {
   sheet: "bg-sheet-dim/40",
@@ -83,7 +84,6 @@ export function WorkspacePage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <div className="text-[11px] uppercase tracking-[0.16em] text-muted">Three-way workspace</div>
           <h1 className="font-serif text-3xl">{mapping.name}</h1>
         </div>
         <div className="flex items-center gap-3">
@@ -98,10 +98,11 @@ export function WorkspacePage() {
         </div>
       </div>
       <ErrorBanner error={error} />
+      <SourceLegend />
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6 text-sm">
         {Object.entries(counts).map(([k, v]) => (
           <div key={k} className="rounded-xl border border-rule bg-white px-3 py-2">
-            <div className="text-[11px] uppercase tracking-wide text-muted">{k.replaceAll("_", " ")}</div>
+            <div className="text-[11px] text-muted">{outcomeLabel(k as RowOutcome)}</div>
             <div className="font-mono text-lg">{v}</div>
           </div>
         ))}
@@ -135,7 +136,7 @@ export function WorkspacePage() {
               {dataColumns.map((col) => (
                 <th key={`${col}-sides`} colSpan={2} className="px-3 pb-2">
                   <div className="flex gap-6 font-sans normal-case tracking-normal">
-                    <span className="text-sheet">Sheet</span>
+                    <span className="text-sheet">Spreadsheet</span>
                     <span className="text-db">Database</span>
                   </div>
                 </th>

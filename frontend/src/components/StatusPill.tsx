@@ -1,4 +1,4 @@
-import { outcomeLabel, outcomeTone } from "../classify";
+import { outcomeHint, outcomeLabel, outcomeTone } from "../classify";
 import type { RowOutcome, SyncStatus } from "../types";
 
 const toneClass = {
@@ -10,7 +10,11 @@ const toneClass = {
 };
 
 export function OutcomePill({ outcome }: { outcome: RowOutcome }) {
-  return <span className={`pill ${toneClass[outcomeTone(outcome)]}`}>{outcomeLabel(outcome)}</span>;
+  return (
+    <span className={`pill ${toneClass[outcomeTone(outcome)]}`} title={outcomeHint(outcome)}>
+      {outcomeLabel(outcome)}
+    </span>
+  );
 }
 
 export function SyncPill({ status }: { status: SyncStatus | null }) {

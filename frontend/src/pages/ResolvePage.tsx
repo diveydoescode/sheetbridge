@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api } from "../api/client";
 import { ErrorBanner } from "../components/ErrorBanner";
+import { SourceLegend } from "../components/SourceLegend";
 import type { Conflict, ResolutionChoice } from "../types";
 
 type PickSide = "SHEET" | "DB" | "SNAPSHOT";
@@ -72,12 +73,13 @@ export function ResolvePage() {
         </h1>
       </div>
       <ErrorBanner error={error} />
+      <SourceLegend />
       <div className="overflow-auto rounded-2xl border border-rule bg-white shadow-ledger">
         <table className="min-w-full text-sm">
           <thead className="bg-paper text-left text-[11px] uppercase tracking-wider text-muted">
             <tr>
               <th className="px-4 py-3">Field</th>
-              <th className="px-4 py-3 text-muted">Snapshot</th>
+              <th className="px-4 py-3 text-muted">Last snapshot</th>
               <th className="px-4 py-3 text-sheet">Spreadsheet</th>
               <th className="px-4 py-3 text-db">Database</th>
               <th className="px-4 py-3">Take</th>

@@ -1,4 +1,4 @@
-import { GitCompare, LayoutDashboard, ListChecks, ScrollText, SplitSquareHorizontal } from "lucide-react";
+import { BookOpen, GitCompare, LayoutDashboard, ListChecks, ScrollText, SplitSquareHorizontal } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { getActor, isPagesDemo, resetDemo, setActor } from "../api/client";
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ const links = [
   { to: "/conflicts", label: "Conflict queue", icon: GitCompare },
   { to: "/runs", label: "Sync runs", icon: SplitSquareHorizontal },
   { to: "/audit", label: "Audit log", icon: ScrollText },
+  { to: "/guide", label: "Guide", icon: BookOpen },
 ];
 
 export function AppShell() {
