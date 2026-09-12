@@ -32,13 +32,7 @@ export function RunsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-serif text-3xl">Resumable sync runs</h1>
-        <p className="mt-2 text-muted">
-          Checkpoints land after every batch. An interrupted run continues from the last row key
-          instead of starting over — and writes stay idempotent on row + revision.
-        </p>
-      </div>
+      <h1 className="font-serif text-3xl">Sync runs</h1>
       <ErrorBanner error={error} />
       <div className="space-y-3">
         {runs.map((run) => (

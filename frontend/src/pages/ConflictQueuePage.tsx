@@ -20,13 +20,7 @@ export function ConflictQueuePage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-serif text-3xl">Conflict queue</h1>
-        <p className="mt-2 text-muted">
-          Both sides moved the same field off the snapshot. An operations user picks a value —
-          every choice is attributed in the audit log.
-        </p>
-      </div>
+      <h1 className="font-serif text-3xl">Conflict queue</h1>
       <ErrorBanner error={error} />
       <div className="space-y-3">
         {conflicts.map((conflict) => (
@@ -52,7 +46,7 @@ export function ConflictQueuePage() {
         ))}
         {conflicts.length === 0 && !error && (
           <div className="rounded-2xl border border-dashed border-rule px-5 py-10 text-center text-muted">
-            Queue is empty. Run a reconciliation from a workspace to classify rows.
+            Queue is empty.
           </div>
         )}
       </div>

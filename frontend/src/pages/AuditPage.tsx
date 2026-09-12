@@ -31,13 +31,7 @@ export function AuditPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-serif text-3xl">Append-only audit log</h1>
-        <p className="mt-2 text-muted">
-          Every field traces back to a person, a time, and a source — spreadsheet, database,
-          auto-merge, or a human resolution.
-        </p>
-      </div>
+      <h1 className="font-serif text-3xl">Audit log</h1>
       <ErrorBanner error={error} />
       <div className="flex flex-wrap gap-3">
         <select

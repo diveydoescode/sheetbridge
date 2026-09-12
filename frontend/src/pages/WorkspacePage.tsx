@@ -85,10 +85,6 @@ export function WorkspacePage() {
         <div>
           <div className="text-[11px] uppercase tracking-[0.16em] text-muted">Three-way workspace</div>
           <h1 className="font-serif text-3xl">{mapping.name}</h1>
-          <p className="mt-1 text-sm text-muted">
-            Click a spreadsheet or database cell to edit. Reconcile classifies against the snapshot
-            — it never last-write-wins.
-          </p>
         </div>
         <div className="flex items-center gap-3">
           <SyncPill status={run?.status ?? mapping.lastRunStatus} />

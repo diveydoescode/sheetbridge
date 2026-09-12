@@ -15,16 +15,7 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      <div className="max-w-2xl">
-        <h1 className="font-serif text-4xl leading-tight">
-          Last writer does not win.
-        </h1>
-        <p className="mt-3 text-muted">
-          Operations lives in a spreadsheet. Engineering lives in a database. SheetBridge
-          classifies every row against the last-synced snapshot — clean, one-sided, or
-          conflicting — and refuses to silently overwrite.
-        </p>
-      </div>
+      <h1 className="font-serif text-3xl">Ledger</h1>
       <ErrorBanner error={error} />
       <div className="grid gap-4 md:grid-cols-2">
         {mappings.map((mapping) => (
@@ -60,7 +51,7 @@ export function DashboardPage() {
         ))}
       </div>
       {mappings.length === 0 && !error && (
-        <p className="text-muted">No mappings yet. Start the API so the demo ledger can seed.</p>
+        <p className="text-muted">No mappings yet.</p>
       )}
     </div>
   );

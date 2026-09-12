@@ -70,9 +70,6 @@ export function ResolvePage() {
         <h1 className="mt-2 font-serif text-3xl">
           Resolve <span className="font-mono text-2xl">{conflict.rowKey}</span>
         </h1>
-        <p className="mt-1 text-sm text-muted">
-          Snapshot is the last agreed truth. Spreadsheet is operations. Database is engineering.
-        </p>
       </div>
       <ErrorBanner error={error} />
       <div className="overflow-auto rounded-2xl border border-rule bg-white shadow-ledger">

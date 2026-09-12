@@ -60,19 +60,15 @@ export function AppShell() {
         </div>
       </header>
       {isPagesDemo() && (
-        <div className="border-b border-rule bg-merge-dim/60">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm sm:px-6">
-            <p className="text-merge">
-              GitHub Pages demo — three-way merge, conflict queue, and audit run in the browser.
-              Java / Spring Boot is what you run locally or in Docker.
-            </p>
+        <div className="border-b border-rule bg-white/70">
+          <div className="mx-auto flex max-w-7xl justify-end px-4 py-2 sm:px-6">
             <button
               type="button"
               onClick={() => {
                 resetDemo();
                 window.location.reload();
               }}
-              className="shrink-0 rounded-full border border-merge/40 bg-white px-3 py-1 text-xs uppercase tracking-wide text-merge"
+              className="rounded-full border border-rule bg-paper px-3 py-1 text-xs uppercase tracking-wide text-muted"
             >
               Reset ledger
             </button>
